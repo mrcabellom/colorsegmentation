@@ -1,0 +1,10 @@
+from app.main import FLASK_APP
+from os import environ
+
+if __name__ == '__main__':
+    HOST = environ.get('SERVER_HOST', 'localhost')
+    try:
+        PORT = int(environ.get('SERVER_PORT', '5555'))
+    except ValueError:
+        PORT = 5555
+    FLASK_APP.run(HOST, PORT)
